@@ -17,34 +17,23 @@ int main(void){
 
 int numberOfBytesInChar(unsigned char val) {
     if (val < 0x80) 
-    {
         return 1;
-    } 
     else if (val < 0xE0) 
-    {
         return 2;
-    } 
     else if (val < 0xF0) 
-    {
         return 3;
-    } 
     else 
-    {
         return 4;
-    }
-    printf("strlen(s)");
 }
-int utf8strlen(char *s) {
+
+int utf8strlen(char *s) 
+{
     char *tmp = s;
     int len = 0;
-    while( *tmp ) {
-        printf("%#x %d\n",*tmp,numberOfBytesInChar(*tmp));                
+    while( *tmp ) 
+    {
         tmp += numberOfBytesInChar(*tmp);
         len++;
-// len += (*tmp++ & 0xC0) != 0x80;
-// *tmp++ & 0xC0  проверяем шаблон 11xxxxxx
-// !=0x80 не является 10xxxxxx 
-// или внутренним байтом UTF-8 символа
     }
     return len;
 }
