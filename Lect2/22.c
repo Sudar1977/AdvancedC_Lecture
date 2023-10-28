@@ -8,6 +8,7 @@ char *strcpy(char *dst, const char *src ) {
 int main()
 {
     char a[]="Hello!", b[7];
+    a[6] = '*';
     strcpy(b,a);
     printf("b = %s\n",b);
     return 0;
