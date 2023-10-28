@@ -9,7 +9,7 @@ int find_odd_element(int32_t arr[], size_t n) {
     return res;
 }
 int main(void) {
-    int32_t arr[] = { 17, 17, 24, 97, 24, 24, 24 };
+    int32_t arr[] = {17,17,24,97,24,24,24};    
     size_t n = sizeof(arr) / sizeof(arr[0]);
     printf("The element is %" PRId32,
            find_odd_element(arr, n));
