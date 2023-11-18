@@ -15,6 +15,8 @@ uint64_t getHash(char const *s) {
 int main(void)
 {
     char s[100] = {0};
+//~ Hello.
+//~ hash = 18446744072292316036
     scanf("%s",s);
     printf("hash = %llu\n", getHash(s));
     return 0;

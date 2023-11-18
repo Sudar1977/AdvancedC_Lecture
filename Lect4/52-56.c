@@ -56,13 +56,11 @@ int main(void)
     while((c=getchar())!='\n')//scanf("[^\n]",%s);
         str[len++]=c;
     str[len]=0;
-    //scanf("[^\n]",%s);    
-    //~ printf("%s\n",str);
     for(int i=0;i<len;i++)
     {
         if(str[i]>='0' && str[i]<='9')//isDigit(str[i])
         {
-            int number,size=0;//long int strtol( const char * string, char ** endptr, int basis );
+            int number,size=0;
             for(number=0;str[i]>='0' && str[i]<='9';i++,size++)
             {
                 number=number*10+str[i]-'0';

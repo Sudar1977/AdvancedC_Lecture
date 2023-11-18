@@ -21,6 +21,8 @@ int main(void) {
     uint64_t ht[100]={0}, hs, p_pow=1;
     size_t lens=strlen(s), lent=strlen(text);
     hs = getHash(s,lens);
+    printf("%s\n",s);
+    printf("%s\n",text);
     printf("s hash = %lld\n",hs);
     for(size_t i=1; i<lens; i++)
         p_pow *= p;
@@ -29,6 +31,8 @@ int main(void) {
     printf("%lld  ",ht[0]);
     for(size_t i=1; i<lent-lens+1; i++) {
         ht[i] = (ht[i-1]%p_pow)*p + text[lens+i-1]-'0';
+        if(hs==ht[i])
+            printf("!");        
         printf("%lld ",ht[i]);
     }
     printf("\n");

@@ -9,7 +9,7 @@ int main (void) {
     for (int j = 1; j <= n; j++)
         for (int i = j; i >= 1; i--)
             c[i] = c[i - 1] + c[i];
-    for (i = 0; i <= n; i++)
+    for (int i = 0; i <= n; i++)
         printf ("%d ", c[i]);
     return 0;
 }

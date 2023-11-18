@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// stack.h
 typedef int datatype;
 
 void push(datatype v); // используется для вычислений
@@ -11,9 +10,6 @@ datatype pop(void);
 int isEmpty(void); // определяет пустой ли стек st
 void operate(char c); // вычисляем два верхних значения на стеке st
 
-
- // stack.c
-//#include "stack.h"
 #define MAX_STACK_SIZE 255
 
 datatype st[MAX_STACK_SIZE]; // массив - стек

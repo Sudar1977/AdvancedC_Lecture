@@ -8,14 +8,15 @@ void encryptDecrypt(char inpString[], char key[]) {
         inpString[i] = inpString[i] ^ key[i%key_len];
     }
 }
-int main() {
+int main(void) {
     char sampleString[] = "Hello world";
+    char key[] = "HASSWORD";//HASSWORD    
     printf("Encrypted String: ");
-    encryptDecrypt(sampleString, "PASSWORD");//HAS..
+    encryptDecrypt(sampleString, key);//HASSWORD
     printf("%s\n", sampleString);
  
     printf("Decrypted String: ");
-    encryptDecrypt(sampleString, "PASSWORD");//HAS..
+    encryptDecrypt(sampleString, key);//HASSWORD
     printf("%s\n", sampleString);
     return 0;
 }

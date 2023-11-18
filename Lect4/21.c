@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <math.h>
+
 int binpow (int n, int pow) {
     if (pow == 0)
         return 1;
@@ -8,3 +11,14 @@ int binpow (int n, int pow) {
         return b * b;
     }
 }
+
+int main(void)
+{
+    int n,p;
+    scanf("%d%d", &n,&p);
+    printf("n=%d,pow=%d binpow=%d mpow %f\n",n,p,binpow(n,p),pow(n,p));
+        
+    return 0;
+}
+
+
