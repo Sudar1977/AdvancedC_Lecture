@@ -1,0 +1,1 @@
+gcc -c -O0 -o function.o function.c
