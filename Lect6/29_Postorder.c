@@ -9,6 +9,27 @@ typedef struct tree {
 } tree;
 
 
+void preorder(tree *root)
+{
+    if(root == NULL)
+        return;
+    printf("%d ",root->key);
+    if(root->left)//! NULL
+        preorder(root->left);
+    if(root->right)//! NULL
+        preorder(root->right);
+}
+
+void inorder(tree *root) {
+    if(root == NULL)
+        return;
+    if(root->left)    
+        inorder(root->left);
+    printf("%d ",root->key);
+    if(root->right)
+        inorder(root->right);
+}
+
 void postorder(tree *root)
 {
     if(root == NULL)
@@ -40,7 +61,11 @@ int main(void)
     tr->left->right = calloc(1,sizeof(tree));
     tr->left->right->key=4;
 
-    printf("Postorder\n");
+    printf("Preorder\n");
+    preorder(tr);
+    printf("\nInorder\n");
+    inorder(tr);
+    printf("\nPostorder\n");
     postorder(tr);
       
     return 0;

@@ -8,6 +8,16 @@ typedef struct tree {
     struct tree *parent; // необязательное поле
 } tree;
 
+void preorder(tree *root)
+{
+    if(root == NULL)
+        return;
+    printf("%d ",root->key);
+    if(root->left)//! NULL
+        preorder(root->left);
+    if(root->right)//! NULL
+        preorder(root->right);
+}
 
 void inorder(tree *root) {
     if(root == NULL)
@@ -38,7 +48,9 @@ int main(void)
     tr->left->right = calloc(1,sizeof(tree));
     tr->left->right->key=4;
 
-    printf("Inorder\n");
+    printf("Preorder\n");
+    preorder(tr);
+    printf("\nInorder\n");
     inorder(tr);
       
     return 0;

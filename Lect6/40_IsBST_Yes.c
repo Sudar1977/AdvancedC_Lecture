@@ -4,7 +4,8 @@
 
 typedef struct tree {
     int key;//datatype 
-    struct tree *left, *right;
+    struct tree *left;
+    struct tree *right;
     struct tree *parent; // необязательное поле
 } tree;
 
@@ -57,56 +58,60 @@ void preorder(tree *root)
     if(root->right)
         preorder(root->right);
 }
-//Вид справа на двоичное дерево
-void printBFSright(tree *root, int level, int *max_level)
-{
-    if (root == NULL)
-        return;
-    //~ printf("root->key =%d %d %d\n",root->key,level,*max_level);
-    if (*max_level < level)
-    {
-        printf("%d\t", root->key);
-        *max_level = level;
-    }
-    printBFSright(root->right, level+1, max_level);
-    printBFSright(root->left,  level+1, max_level);
-}
 
+typedef enum {false=0,true=1} bool;
+bool isBST(tree* root)
+{
+static tree *prev = NULL;    
+    // traverse the tree in inorder fashion and keep track of prev node
+    if (root)
+    {
+        if (!isBST(root->left))
+          return false;
+        // Allows only distinct valued nodes
+        if (prev != NULL && root->key <= prev->key)
+          return false;
+        prev = root;
+        return isBST(root->right);
+    }
+    return true;
+}
 
 int main(void)
 {
     tree *tr = NULL;
 //переимновываем узлы в предыдущем дереве    
     tr = calloc(1,sizeof(tree));
-    tr->key = 3;
+    tr->key = 8;
     tr->right = calloc(1,sizeof(tree));
-    tr->right->key = 1;
+    tr->right->key = 10;
     tr->left = calloc(1,sizeof(tree));
-    tr->left->key = 5;
+    tr->left->key = 3;
     tr->left->left = calloc(1,sizeof(tree));
-    tr->left->left->key=6;
+    tr->left->left->key=1;
     tr->left->right = calloc(1,sizeof(tree));
-    tr->left->right->key=2;
-//добавляем узлы от 2
-//~ tr->left->right->key=2;
+    tr->left->right->key=6;
+//добавляем узлы от 6
+//~ tr->left->right->key=6;
     tr->left->right->left = calloc(1,sizeof(tree));
-    tr->left->right->left->key = 7;//слева
+    tr->left->right->left->key = 4;//слева
     tr->left->right->right = calloc(1,sizeof(tree));
-    tr->left->right->right->key = 4;//справа
-//добавляем узлы от 1
-//~ tr->right->key = 1;
-    tr->right->left = calloc(1,sizeof(tree));
-    tr->right->left->key=0;
+    tr->left->right->right->key = 7;//справа
+//добавляем узлы от 10
+//~ tr->right->key = 10;
     tr->right->right = calloc(1,sizeof(tree));
-    tr->right->right->key=8;
+    tr->right->right->key=14;
+    tr->right->right->left = calloc(1,sizeof(tree));
+    tr->right->right->left->key=13;
 //печатаем дерево
     printf("BFS (Breadth First Traversal)\n");
     printBFS(tr);
     printf("\nPreorder\n");
     preorder(tr);
     printf("\n");
-int level     = 1;
-int max_level = 0;
-    printBFSright(tr,level,&max_level);
+    printf("Is BST? %s\n",isBST(tr)?"YES":"NO");
+    printf("\nPreorder\n");
+    preorder(tr);
+    
     return 0;
 }

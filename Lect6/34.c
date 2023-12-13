@@ -104,6 +104,5 @@ int main(void)
     printf("\n");
 int n = 38;
     printf("n=%d %s\n",n,hasPathSum(tr,n)?"YES":"NO");
-  
     return 0;
 }
