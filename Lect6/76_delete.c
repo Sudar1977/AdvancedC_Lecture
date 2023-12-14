@@ -84,6 +84,21 @@ struct node* balance(struct node* p)
     }
     return p; // балансировка не нужна
 }
+/* Находим минимальный ключ в этом поддереве.
+ * По свойству двоичного дерева поиска этот ключ находится
+ * в конце левой ветки, начиная от корня дерева */
+struct node* findmin(struct node* p) // поиск узла с минимальным ключом в дереве p 
+{
+    return p->left?findmin(p->left):p;
+}
+// удаление узла с минимальным ключом из дерева p
+struct node* removemin(struct node* p) 
+{
+    if( p->left==0 )
+        return p->right;
+    p->left = removemin(p->left);
+    return balance(p);
+}
 
  /* удаление ключа k из дерева p */
 struct node *removenode(struct node *p, int k)
@@ -100,8 +115,11 @@ struct node *removenode(struct node *p, int k)
         struct node* r = p->right;
         free(p);       
         /* Если правого поддерева нет то по свойству АВЛ-дерева слева у этого узламожет быть только один единственный дочерний узел (дерево высоты 1), либо узел p вообще лист */
-        if( !r ) return q;
-        /* Находим последователя. Извлекаем его оттуда, слева к min подвешиваем q, справа — то, что получилось из r, возвращаем min после его балансировки. */
+        if( !r )
+            return q;
+        /* Находим последователя. Извлекаем его оттуда,
+         * слева к min подвешиваем q, справа — то, что получилось из r,
+         * возвращаем min после его балансировки. */
         struct node* min = findmin(r);
         min->right = removemin(r);
         min->left = q;
@@ -110,9 +128,80 @@ struct node *removenode(struct node *p, int k)
     return balance(p);
 }
 
+void inorder(struct node *root) {
+    if(root == NULL)
+        return;
+    if(root->left)    
+        inorder(root->left);
+    printf("%d ",root->key);
+    if(root->right)
+        inorder(root->right);
+}
+
+//Вычисляем высоту дерева
+int heightTree(struct node* p)
+{
+    if (p == NULL)
+        return 0;
+    else
+    {
+        /* вычисляем высоту каждого поддерева */
+        int lheight = heightTree(p->left);
+        int rheight = heightTree(p->right);
+ 
+        if (lheight > rheight)
+            return (lheight + 1);
+        else
+            return (rheight + 1);
+    }
+}
+//Печатаем все узлы на уровне level
+void printCurrentLevel(struct node* root, int level)
+{
+    if (root == NULL)
+        return;
+    if (level == 1)
+        printf("%d ", root->key);
+    else if (level > 1)
+    {
+        //если поменять местами то будет обход справа на лево
+        printCurrentLevel(root->left,  level - 1);
+        printCurrentLevel(root->right, level - 1);
+    }
+}
+//функция печати
+void printBFS(struct node* root)
+{
+    int h = heightTree(root);
+    for (int i = 1; i <= h; i++)
+        printCurrentLevel(root, i);
+}
 
 int main(void)
 {
+    struct node* tr=NULL;
+    tr = insert(tr,10);
+    tr = insert(tr,5);
+    tr = insert(tr,15);
+    tr = insert(tr,3);
+    tr = insert(tr,7);
+    tr = insert(tr,13);  
+    tr = insert(tr,18);  
+    tr = insert(tr,1);    
+    tr = insert(tr,6);
+        
+    printf("\nInorder\n");    
+    inorder(tr);
+    printf("\nBFS (Breadth First Traversal)\n");
+    printBFS(tr);        
+
+    tr = removenode(tr,10);
+
+    printf("\nInorder\n");    
+    inorder(tr);
+    printf("\nBFS (Breadth First Traversal)\n");
+    printBFS(tr); 
+    
     return 0;
 }
 

@@ -108,6 +108,7 @@ int main(void)
     insert(&tr,18,NULL);  
     insert(&tr,1, NULL);    
     insert(&tr,6 ,NULL);
+    
     printf("BFS (Breadth First Traversal)\n");    
     printBFS(tr);
     printf("\nInorder\n");    

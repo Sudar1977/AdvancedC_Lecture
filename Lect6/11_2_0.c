@@ -15,7 +15,7 @@ int main(void)
     head->id = 1;
     
     /* Важно занести NULL в последний элемент */
-    head->next=NULL;
+    head->next = NULL;
     
     printf("%d \n",head->id);  
     return 0;

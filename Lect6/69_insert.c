@@ -12,17 +12,16 @@ struct node {
 struct node* insert(struct node *p, int k)
 {
     if( p==NULL ) {
-        p=malloc(sizeof(struct node));
+        p=(struct node*)calloc(1,sizeof(struct node));
         p->key=k;
-        p->height=0;
-        p->left = p->right=NULL;
         return p;
     }
     if( k < p->key )
-        p->left = insert( p->left,k);
+        p->left  = insert(p->left, k);
     else
-        p->right = insert( p->right,k);
+        p->right = insert(p->right,k);
     return balance(p);
+    //~ return p;//без балансировки обычное дерево поиска
 }
 
 
