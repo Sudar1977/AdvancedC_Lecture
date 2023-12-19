@@ -31,10 +31,6 @@ float F3(float x) {
     return f2(x)-f1(x);
 }
 
-int  signF(float x)
-{
-    return f(x)==0 ? 0 : (f(x) < 0 ? -1:+1);
-}
 
 float rootFindLineSearch(float xl, float xr, float eps, function f) {
     float x, minx = xl, nextstep;
@@ -48,6 +44,10 @@ float rootFindLineSearch(float xl, float xr, float eps, function f) {
     return minx;
 }
 
+int  signF(float x,function f)
+{
+    return f(x)==0 ? 0 : (f(x) < 0 ? -1:+1);
+}
 
 float rootFindDiv(float xl, float xr, float eps, function f) {
     int stepcount=0; //число шагов
@@ -55,7 +55,7 @@ float rootFindDiv(float xl, float xr, float eps, function f) {
     while(fabs(xr-xl)>eps) { //вещественный модуль разницы или floatabs
         stepcount++;
         xm=(xl+xr)/2; // середина отрезка
-        if(signF(xl) != signF(xm)) //если знак отличается
+        if(signF(xl,f) != signF(xm,f)) //если знак отличается
             xr=xm;
         else
             xl=xm;
@@ -78,7 +78,7 @@ float rootFindDiv(float xl, float xr, float eps, function f) {
             printf("Find root for %d steps\n",stepcount);
             return xl;
         }
-        if(signF(xl) != signF(xm)) //если знак отличается
+        if(signF(xl,f) != signF(xm,f)) //если знак отличается
             xr=xm;
         else
             xl=xm;
