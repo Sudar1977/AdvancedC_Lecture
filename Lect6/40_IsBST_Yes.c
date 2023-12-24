@@ -77,6 +77,16 @@ static tree *prev = NULL;
     return true;
 }
 
+void inorder(tree *root) {
+    if(root == NULL)
+        return;
+    if(root->left)    
+        inorder(root->left);
+    printf("%d ",root->key);
+    if(root->right)
+        inorder(root->right);
+}
+
 int main(void)
 {
     tree *tr = NULL;
@@ -110,8 +120,8 @@ int main(void)
     preorder(tr);
     printf("\n");
     printf("Is BST? %s\n",isBST(tr)?"YES":"NO");
-    printf("\nPreorder\n");
-    preorder(tr);
+    printf("\ninorder\n");
+    inorder(tr);
     
     return 0;
 }

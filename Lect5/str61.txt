@@ -41,7 +41,7 @@ UAWAVAUATWVSH
 l$@D
 [^_A\A]A^A_]
 D$0H
-(D;%6T
+(D;%
 L$ H
 L$ H
 CCG 
@@ -93,6 +93,7 @@ d$pD
 D$`L
 D$`I
 L$hE1
+%llu
 Input your password: 
 Access granted
 Access denied
@@ -1886,7 +1887,7 @@ h+ret
 ._tzset
 /_get_output_format
 0_amsg_exit
-i&P(
+i&p(
 at_quick_exit
 func
 _onexit
@@ -2269,9 +2270,9 @@ main
 .text
 .data
 .bss
+.rdata
 .xdata
 .pdata
-.rdata
 .file
 gccmain.c
 __main
@@ -2292,7 +2293,7 @@ wildcard.c
 .bss
 .file
 dllargv.c
-_setargv0
+_setargvP
 .text
 .data
 .bss
@@ -2337,7 +2338,7 @@ cinitexe.c
 .CRT$XIA
 .file
 merr.c
-_matherr
+_matherr0
 .text
 .data
 .bss
@@ -2346,7 +2347,7 @@ _matherr
 .pdata
 .file
 CRT_fp10.c
-_fpreset
+_fpreset0
 fpreset
 .text
 .data
@@ -2423,7 +2424,7 @@ mingw_matherr.
 .bss
 .file
 ucrt_vfprintf.
-vfprintf 
+vfprintf@
 .text
 .data
 .bss
@@ -2992,7 +2993,7 @@ __xl_a
 _cexit
 __xl_d
 _tls_end
-__tznameP
+__tznamep
 memcpy
 puts
 malloc

@@ -1,1 +1,1 @@
-strings prog.exe > str.txt
+strings 59.exe > str.txt

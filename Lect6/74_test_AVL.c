@@ -138,15 +138,15 @@ void printBFS(struct node* root)
 int main(void)
 {
     struct node* tr=NULL;
-    tr = insert(tr,10);
-    tr = insert(tr,5);
-    tr = insert(tr,15);
+    tr = insert(tr,1);    
     tr = insert(tr,3);
+    tr = insert(tr,5);
+    tr = insert(tr,6);
     tr = insert(tr,7);
+    tr = insert(tr,10);
+    tr = insert(tr,15);
     tr = insert(tr,13);  
     tr = insert(tr,18);  
-    tr = insert(tr,1);    
-    tr = insert(tr,6);
         
     printf("\nInorder\n");    
     inorder(tr);

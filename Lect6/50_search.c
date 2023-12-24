@@ -142,10 +142,16 @@ int main(void)
     printf("\nInorder\n");    
     inorder(tr);
 tree *node;
-    node = search_tree(tr,8);
-    printf("\nsearch_tree = %d\n",node->key);
-    node = search_tree_i(tr,8);    
-    printf("search_tree_i = %d\n",node->key);
+    node = search_tree(tr,20);
+    if(node)
+        printf("\nsearch_tree = %d\n",node->key);
+    else
+        printf("\nNO\n");
+    node = search_tree_i(tr,20);    
+    if(node)
+        printf("search_tree_i = %d\n",node->key);
+    else
+        printf("\nNO\n");
 
     
     return 0;

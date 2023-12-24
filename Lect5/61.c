@@ -10,10 +10,11 @@
         hash += (*s++ - 'a' + 1) * p_pow;
         p_pow *= p;
     }
+    printf("%llu\n",hash);
     return hash;
 }
 _Bool checkPass(char *p) {
-    if(getHash(p) == 577739920)
+    if(getHash(p) == 577739920)//secret
         return 1;
     return 0;
 }

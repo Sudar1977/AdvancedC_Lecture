@@ -1597,6 +1597,6 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 # 4 "main.c"
 int main (void)
 {
-    printf("Hello world\n" );
+    printf("Hello world!\n" );
     return 0;
 }

@@ -93,7 +93,7 @@ d$pD
 D$`L
 D$`I
 L$hE1
-secret
+password
 Input your password: 
 Access granted
 Access denied
@@ -567,6 +567,20 @@ Comperand
 Offset
 Zmemcpy
 __builtin_memcpy
+GNU C11 13.2.0 -mtune=generic -march=nocona -g -std=c11
+char
+long long unsigned int
+long long int
+short unsigned int
+long int
+unsigned int
+scanf
+printf
+	strcmp
+main
+password
+checkPass
+_Bool
 GNU C99 13.2.0 -m64 -masm=att -mtune=generic -march=nocona -g -O2 -std=gnu99
 char
 long long unsigned int
@@ -1958,6 +1972,14 @@ string.h
 process.h
 synchapi.h
 <built-in>
+D:\geekbrains.ru\Projects\C\AfvancedC\Lect5
+59.c
+D:/geekbrains.ru/Projects/C/AfvancedC/Lect5
+D:/msys64/ucrt64/include
+59.c
+59.c
+stdio.h
+string.h
 C:\M\B\src\build-UCRT64
 C:/M/B/src/mingw-w64/mingw-w64-crt/crt/gccmain.c
 C:/M/B/src/build-UCRT64

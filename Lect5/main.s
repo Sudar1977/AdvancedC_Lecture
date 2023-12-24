@@ -3,7 +3,7 @@
 	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
 .LC0:
-	.ascii "Hello world\0"
+	.ascii "Hello world!\0"
 	.text
 	.globl	main
 	.def	main;	.scl	2;	.type	32;	.endef
